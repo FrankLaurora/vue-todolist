@@ -10,6 +10,11 @@
         <!-- fontawesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- /fontawesome -->
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+        <!-- /google font -->
         <title>Vue To Do List</title>
     </head>
     <body>
@@ -18,16 +23,17 @@
             <header>
                 <img src="img/logo.png" alt="boolean logo">
                 <div class="input_box">
-                    <input type="text" placeholder="Nuovo ToDo">
-                    <button type="button"><strong>Aggiungi</strong></button>
+                    <input type="text" placeholder="Nuovo ToDo" v-model="newToDo" @keyup.enter="addNewToDo()">
+                    <button type="button" @click="addNewToDo()"><strong>Aggiungi</strong></button>
                 </div>
             </header>
             <!-- /header with logo and input bar -->
             <!-- main with list unordered list -->
             <main>
-                <ul>
-                    <li v-for="(toDo, index) in toDoList" :key="index">{{toDo.toDo}} <i class="fas fa-times"></i></li>
+                <ul v-if="toDoList.length > 0">
+                    <li v-for="(toDo, index) in toDoList" :key="index">{{toDo.toDo}} <i class="fas fa-times" @click="removeToDo(index)"></i></li>
                 </ul>
+                <h2 v-else>Non hai impegni in sospeso.</h2>
             </main>
             <!-- /main with list unordered list -->
         </div>

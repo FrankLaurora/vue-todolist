@@ -12,6 +12,10 @@
     margin: auto;
 }
 
+body {
+    font-family: 'Lato', sans-serif;
+}
+
 /* header */
 header {
     width: 60%;
@@ -33,7 +37,8 @@ header img {
 
 .input_box input, .input_box button {
     padding: 15px;
-    border-radius:15px;
+    border-radius: 15px;
+    outline: none;
 }
 
 .input_box input {
@@ -51,14 +56,16 @@ main {
     margin: 30px;
 }
 
+main ul, main ul li, main h2 {
+    padding: 15px;
+}
+
 main ul {
     list-style: none;
-    padding: 15px;
 }
 
 main ul li {
     display: flex;
     justify-content: space-between;
-    padding: 15px;
     border-bottom: 1px solid #bbb;
 }

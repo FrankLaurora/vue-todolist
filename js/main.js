@@ -17,11 +17,25 @@ const app = new Vue ({
                 toDo: "Fare il bucato",
                 done: false
             }
-        ]
+        ],
 
+        newToDo: ""
     },
 
     methods: {
+        addNewToDo: function(){
+            if(this.newToDo != "") {
+                this.toDoList.push({
+                    toDo: this.newToDo,
+                    done: false
+                });
 
+                this.newToDo = "";
+            }
+        },
+
+        removeToDo: function(index){
+            this.toDoList.splice(index, 1);
+        }
     }
 });
