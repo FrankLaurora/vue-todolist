@@ -4,3 +4,61 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* common */
+#root {
+    width: 70%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* header */
+header {
+    width: 60%;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+header img {
+    width: 100%;
+    margin: 20px 0;
+    max-width: 500px;
+}
+
+.input_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input_box input, .input_box button {
+    padding: 15px;
+    border-radius:15px;
+}
+
+.input_box input {
+    flex-grow: 1;
+}
+
+.input_box button {
+    margin-left: 20px;
+}
+
+/* main */
+main {
+    background-color: #eee;
+    border-radius: 15px;
+    margin: 30px;
+}
+
+main ul {
+    list-style: none;
+    padding: 15px;
+}
+
+main ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #bbb;
+}
