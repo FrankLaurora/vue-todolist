@@ -31,7 +31,16 @@
             <!-- main with list unordered list -->
             <main>
                 <ul v-if="toDoList.length > 0">
-                    <li v-for="(toDo, index) in toDoList" :key="index">{{toDo.toDo}} <i class="fas fa-times" @click="removeToDo(index)"></i></li>
+                    <li v-for="(toDo, index) in toDoList" :key="index" :class="toDo.done">
+                        <span class="list_text">
+                            {{toDo.toDo}} 
+                        </span>
+                        <span class="icons_box">
+                            <i v-if="toDo.done == 'undone'" class="fas fa-check" @click="toDoDone(index)"></i>
+                            <i v-else class="fas fa-times" @click="toDoDone(index)"></i>
+                            <i class="fas fa-trash-alt" @click="removeToDo(index)"></i>
+                        </span>
+                    </li>
                 </ul>
                 <h2 v-else>Non hai impegni in sospeso.</h2>
             </main>

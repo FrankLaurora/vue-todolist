@@ -5,17 +5,17 @@ const app = new Vue ({
         toDoList: [
             {
                 toDo: "Fare i compiti",
-                done: false
+                done: "undone"
             },
 
             {
                 toDo: "Fare la spesa",
-                done: false
+                done: "undone"
             },
 
             {
                 toDo: "Fare il bucato",
-                done: false
+                done: "undone"
             }
         ],
 
@@ -27,7 +27,7 @@ const app = new Vue ({
             if(this.newToDo != "") {
                 this.toDoList.push({
                     toDo: this.newToDo,
-                    done: false
+                    done: "undone"
                 });
 
                 this.newToDo = "";
@@ -36,6 +36,14 @@ const app = new Vue ({
 
         removeToDo: function(index){
             this.toDoList.splice(index, 1);
+        },
+
+        toDoDone: function(index) {
+            if(this.toDoList[index].done == "undone") {
+                this.toDoList[index].done = "done";
+            } else {
+                this.toDoList[index].done = "undone";
+            }
         }
     }
 });
